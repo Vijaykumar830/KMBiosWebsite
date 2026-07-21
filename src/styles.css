@@ -1,0 +1,237 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* KM Biosciences design system
+ * Palette inspired by KMB logo: deep purples + royal blues.
+ * All tokens live in :root; utilities pull from @theme inline.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 20px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens */
+  --color-deep-purple: var(--deep-purple);
+  --color-royal-purple: var(--royal-purple);
+  --color-dark-blue: var(--dark-blue);
+  --color-royal-blue: var(--royal-blue);
+  --color-light-blue: var(--light-blue);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+
+  --font-futura: "Futura", sans-serif;  
+
+
+  --shadow-elegant: 0 30px 80px -30px color-mix(in oklab, var(--deep-purple) 35%, transparent);
+  --shadow-card: 0 10px 40px -20px color-mix(in oklab, var(--dark-blue) 30%, transparent);
+  --shadow-soft: 0 8px 30px -12px color-mix(in oklab, var(--royal-blue) 18%, transparent);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brand */
+  --deep-purple: #432a7a;
+  --royal-purple: #6a4fb3;
+  --dark-blue: #163a7d;
+  --royal-blue: #2d63d4;
+  --light-blue: #8ccbff;
+
+  --surface: #f7f9fc;
+  --ink: #0e1530;
+  --ink-soft: #4b5573;
+
+  --background: #ffffff;
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--dark-blue);
+  --primary-foreground: #ffffff;
+  --secondary: #eef2fb;
+  --secondary-foreground: var(--ink);
+  --muted: #eef2fb;
+  --muted-foreground: var(--ink-soft);
+  --accent: #ede8fa;
+  --accent-foreground: var(--deep-purple);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #ffffff;
+  --border: #e3e8f3;
+  --input: #e3e8f3;
+  --ring: var(--royal-blue);
+
+  --grad-hero: linear-gradient(135deg, #0b1e4a 0%, #163a7d 30%, #432a7a 65%, #6a4fb3 100%);
+  --grad-button: linear-gradient(135deg, #2d63d4 0%, #6a4fb3 100%);
+  --grad-brand: linear-gradient(135deg, #163a7d 0%, #432a7a 50%, #6a4fb3 100%);
+  --grad-soft: linear-gradient(180deg, #f7f9fc 0%, #ede8fa 100%);
+  --grad-glow: radial-gradient(
+    60% 60% at 50% 0%,
+    rgba(140, 203, 255, 0.35) 0%,
+    rgba(140, 203, 255, 0) 70%
+  );
+}
+
+.dark {
+  --background: #0b1024;
+  --foreground: #f3f5fc;
+  --card: #131a38;
+  --card-foreground: #f3f5fc;
+  --popover: #131a38;
+  --popover-foreground: #f3f5fc;
+  --primary: #8ccbff;
+  --primary-foreground: #0b1024;
+  --secondary: #1a2245;
+  --secondary-foreground: #f3f5fc;
+  --muted: #1a2245;
+  --muted-foreground: #a6b0d0;
+  --accent: #2a1f55;
+  --accent-foreground: #e8deff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #8ccbff;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    font-size: 1.5rem;
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility grad-hero {
+  background-image: var(--grad-hero);
+}
+@utility grad-brand {
+  background-image: var(--grad-brand);
+}
+@utility grad-button {
+  background-image: var(--grad-button);
+}
+@utility grad-soft {
+  background-image: var(--grad-soft);
+}
+@utility grad-text {
+  background-image: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass {
+  background-color: color-mix(in oklab, white 60%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid color-mix(in oklab, white 70%, transparent);
+}
+@utility glass-dark {
+  background-color: color-mix(in oklab, #0b1024 45%, transparent);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+@utility float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(30px, -20px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+@utility drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+@keyframes shimmer-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+@utility gradient-anim {
+  background-size: 200% 200%;
+  animation: shimmer-move 14s linear infinite;
+}
