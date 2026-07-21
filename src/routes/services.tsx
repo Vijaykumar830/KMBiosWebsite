@@ -169,7 +169,7 @@ export default function ServicesPage() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[color:var(--deep-purple)] shadow-elegant hover:-translate-y-0.5"
               >
-                Request Consultation <ArrowRight className="h-4 w-4" />
+                Talk to KMB <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
