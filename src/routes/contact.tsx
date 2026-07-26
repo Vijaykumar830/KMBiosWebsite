@@ -74,8 +74,8 @@ export default function ContactPage() {
                     e.preventDefault();
                     try {
                       await emailjs.send(
-                        "service_mbin4ut",
-                        "template_ln07m0a",
+                        "service_lvqdl0s",
+                        "template_fatho0m",
                         {
                           name: formData.name,
                           company: formData.company,
@@ -84,7 +84,7 @@ export default function ContactPage() {
                           service: formData.service,
                           message: formData.message,
                         },
-                        "ELoi2L2CRIelCO_hR",
+                        "0pRAr1uBpzEzjBw-w",
                       );
 
                       setSubmitted(true);
